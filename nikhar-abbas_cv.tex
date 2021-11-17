@@ -1,0 +1,184 @@
+\documentclass[11pt]{moderncv}
+\usepackage{datetime}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{dashrule}
+% moderncv themes
+\moderncvtheme{classic}
+\definecolor{color1}{RGB}{66,101,33}
+\definecolor{datecolor}{gray}{.45} % Same as color 2 (used for first name)
+% Bibliography
+\usepackage[style=authoryear,sorting=ydnt,dashed=false]{biblatex}
+\newcommand*{\bibyear}{}
+\defbibenvironment{bibliography}
+  {\list
+     {\iffieldequalstr{year}{\bibyear}
+        {}
+        {\textcolor{datecolor}{\printfield{year}}%
+         \savefield{year}{\bibyear}}}
+     {\setlength{\topsep}{0pt}% layout parameters based on moderncvstyleclassic.sty
+      \setlength{\labelwidth}{\hintscolumnwidth}%
+      \setlength{\labelsep}{\separatorcolumnwidth}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \leftmargin\labelwidth%
+      \advance\leftmargin\labelsep}%
+      \sloppy\clubpenalty4000\widowpenalty4000}
+  {\endlist}
+  {\item}
+\addbibresource{myrefs.bib}
+
+% Title formatting 
+% \renewcommand*{\titlestyle}[1]{{\titlefont\textcolor{color1}{#1}}}
+
+% Quote formatting
+\renewcommand*{\quotefont}{\slshape}
+\renewcommand*{\recomputecvheadlengths}{%
+  \setlength{\quotewidth}{0.9\textwidth}}
+\renewcommand*{\quotestyle}[1]{{\quotefont\textcolor{color1}{#1}}}
+
+% Date Command
+\def\dates[#1.#2-#3.#4]{\textcolor{datecolor}{\yearabove{\shortmonthname[#1]}{#2}--\yearabove{\shortmonthname[#3]}{#4}}}
+\def\datepres[#1.#2]{\textcolor{datecolor}{\yearabove{\shortmonthname[#1]}{#2}-- Pres.}}
+\def\datesingle[#1.#2]{\textcolor{datecolor}{\yearabove{\shortmonthname[#1]}{#2}}}
+\newcommand{\yearabove}[2]{\parbox[t]{10mm}{\centering{#2\par\vspace{-2mm} \tiny{#1}}}}
+
+% character encoding
+\usepackage[utf8]{inputenc}
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+\recomputelengths
+
+\usepackage{fontawesome}
+% \AtBeginEnvironment{printbibliography}{\def\url#1{\href{#1}{\faExternalLink}}}
+\DeclareFieldFormat{url}{{\href{#1}{\faExternalLink}}}
+
+
+% personal data
+\firstname{Nikhar J.}
+\familyname{Abbas}
+% \title{Renewable Energy Enthusiast}
+\title{Curriculum Vitae}
+\address{2953 N. Columbine Street}{Denver, CO 80205}
+\mobile{+1 480.324.6245}
+% \phone{+12 (3)456 78 90}
+\email{nikhar.abbas@gmail.com}
+\social[github]{nikhar-abbas}
+% \photo[64pt]{jdoe_picture}
+\quote{
+    \dotfill \\
+    The windmill with its skeleton tower and creaking vanes is an object of beauty as significant in its way as the cottonwood tree, and the open tank at its foot, big enough to swim in, is a thing of joy to man and beast, no less worthy of praise than the desert spring. \\ - Edward Abbey \\
+    \dotfill
+}
+
+\begin{document}
+\maketitle
+% I am currently a PhD candidate at the University of Colorado, Boulder where my research focus has been in enabling wind turbine control for system design purposes. The bulk of my experience is in developing the Reference OpenSource Controller (ROSCO) and implementing it for various automated wind turbine design purposes. My broader, more high-level, interest is in enabling renewable energy access for the world both through technical and social change. 
+\section{Education}
+\cventry{\datepres[08.2017]}{Doctor of Philosophy}{University of Colorado Boulder}
+{Mechanical Engineering}{Thesis Title: \textit{Enabling Control for Wind Turbine Design}}{}
+\cventry{\dates[09.2015-06.2016]}{Master of Science}{University of California, San Diego}
+{Mechanical Engineering}{Thesis Topic: \textit{Small Disturbance, Long Term Voltage Stabilization on a Distribution Feeder in Kathmandu,
+Nepal}}{}
+\cventry{\dates[09.2011-06.2016]}{Bachelor of Science}{University of California, San Diego}
+{Environmental Engineering}{}{}
+
+\section{Employment}
+\cventry{\datepres[08.2017]}{Graduate Research Assistant}{University of Colorado Boulder}{Boulder, CO}{Thesis Advisor: Professor Lucy Pao}
+{Conducted research concerning integration of wind turbine control systems into automated wind turbine design processes. This has been done in close collaboration with the National Renewable Energy Laboratory (NREL) for the entirety of my graduate research. The largest contributions of this work include:
+\begin{itemize}
+    \item Creator and lead developer of the Reference OpenSource Controller (ROSCO) -- a fully automated wind turbine controller tuning and implementation framework for use by the wind energy community (800+ documentation visits from 25 countries.)
+    \item Integration of ROSCO into the ARPA-E funded Wind Energy with Integrated Servo-control (WEIS) framework, a multi-disciplinary optimization tool for fixed and floating offshore wind turbines.
+    \item Co-design optimization of trailing-edge flaps on low specific power rotors to reduce the cost of energy.
+    \item Analysis of controller influence on optimized wind turbine design through robust stability margin constrained controller tuning processes.
+\end{itemize}
+}
+\cventry{\dates[08.2017-05.2018]}{Graduate Teaching Assistant}{University of Colorado Boulder}{Boulder, CO}{MCEN 4043 - System Dynamics}
+{Lead teaching assistant for the primary senior-level system dynamics laboratory course taught in the Mechanical Engineering Department at CU Boulder.
+    \begin{itemize}
+        \item Instructed and supervised 60+ students in bi-weekly laboratory experiments focused on the fundamentals of mechanical and electrical system dynamics.
+        \item Hosted weekly office hours 
+        \item Graded homework and exams
+    \end{itemize}
+}
+\cventry{\dates[07.2016-06.2017]}{Graduate Controls Intern}{National Renewable Energy Laboratory}
+{Golden, CO}{}
+{ 
+    \begin{itemize}
+        \item Unknown input, EKF design for Wave Energy Converter (WEC) state estimation
+        \item Wave excitation force forecasting via autoregressive parameter estimation
+        \item Model predictive control to maximize power production and minimize foundation loads
+    \end{itemize}
+}
+\cventry{\dates[09.2015-06.2016]}{Graduate Research Assistant}{University of California, San Diego}{San Diego, CA}{Thesis Advisor: Professor Jan Kleissl}
+{Research in optimization and control of a grid connected solar-plus-battery system in Kathmandu, Nepal to improve voltage quality for local feeder connections. The work was primarily conducted through MATLAB and OpenDSS and in collaboration with the NGO, RIDS-Nepal.}
+
+\section{Relevant Skills}
+\cvitem{}{
+\begin{itemize}
+    \item Extensive knowledge of wind turbine control systems, especially within the context of turbine design.
+    \item Setting up, running, and post-processing simulation data from wind turbine design load cases and related large data sets.
+    \item Use of version control for collaborative software development (git).
+    \item Use of large-scale High Performance Computing systems for parallel processing.
+    \item Multi-disciplinary optimization, particularly within the OpenMDAO framework.
+\end{itemize}
+}
+\noindent\begin{minipage}[h]{0.48\textwidth}
+    \subsection{Programing Languages}
+    \cvitem{}{
+        \begin{itemize}
+            \item Python
+            \item MATLAB/Simulink
+            \item Modern Fortran
+        \end{itemize}
+        }
+    \end{minipage}
+\noindent\begin{minipage}[h]{0.48\textwidth}
+    \subsection{Wind Energy Software Expertise}
+    \cvitem{}{
+    \begin{itemize}
+        \item ROSCO 
+        \item OpenFAST 
+        \item WEIS/WISDEM
+    \end{itemize}
+    }
+\end{minipage}
+
+\noindent\textcolor{color2}{\rule{\textwidth}{1pt}}
+\nocite{*}                   % cite all entrys in bib 
+\printbibliography[keyword={first-author-journal}, title={First-Author Journal Papers}]
+
+\printbibliography[keyword={first-author-conference}, title={First-Author Conference Papers}]
+
+\printbibliography[keyword={presentation}, title={Presentations}]
+
+\printbibliography[keyword={refereed-journal}, title={Refereed Journal Papers}]
+
+\printbibliography[keyword={refereed-report}, title={Refereed Technical Reports}]
+
+\printbibliography[keyword={refereed-conference}, title={Refereed Conference Papers}]
+\noindent\textcolor{color2}{\rule{\textwidth}{1pt}}
+
+\section{Honors and Awards}
+\cvitem{\datesingle[08.2017]}{Outstanding Mechanical Engineering Research Potential Fellowship}
+
+\section{Philanthropy}
+\cventry{\datepres[12.2018]}{Assisted Ski Instructor}{National Sports Center for the Disabled}
+{Winter Park, Colorado}{}{Volunteer with the NSCD assisted program ski program, a program that brings disabled persons onto the ski slopes of the Winter Park Ski Resort in Colorado. Primary volunteering has been as a tethered and non-tethered bi-ski and mono-ski instructor.
+}
+\cventry{\datepres[07.2021]}{Surplus Food Distribution}{Denver Food Rescue}
+{Denver, CO}{}
+{Help transport surplus food around the city of Denver, primarily by bicycle. The Denver Food Rescue works to collect unwanted food from various suppliers (e.g. grocers) and distributes it around town, preferably by bicycle, to community centers that then provide the food to those in need.
+}
+
+
+\section{Hobbies and Interests}
+\cvitem{}{A list of activities that fill my proverbial cup:}{}{}
+{
+\cvlistitem{A general love for spending time in the outdoors -- activities including but not limited to: trail running, rock climbing, bicycle riding, and skiing.}
+\cvlistitem{General handy-work regarding mantainance and improvements to my home, vehicle, and bicycle.}
+\cvlistitem{Ultimate frisbee and soccer}
+}
+
+
+
+\end{document}
